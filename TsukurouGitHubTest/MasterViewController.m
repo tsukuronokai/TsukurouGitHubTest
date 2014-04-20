@@ -18,6 +18,12 @@
 
 @implementation MasterViewController
 //nibファイルがアプリケーションに読み込まれ、nibファイルに登録されたオブジェクト間のインスタンス変数の自動接続が終了すると送信される。
+/*
+ nibファイルとは
+    Viewの大きさ、配置などの各種設定を保存したファイル(中身はXML)のこと
+    拡張子は、xib
+    Xcodeで作成して、Interface Builderで編集できる(らしい)
+*/
 - (void)awakeFromNib
 {
     [super awakeFromNib];
