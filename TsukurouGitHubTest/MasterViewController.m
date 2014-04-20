@@ -17,6 +17,7 @@
 
 
 @implementation MasterViewController
+//テスト♥
 //nibファイルがアプリケーションに読み込まれ、nibファイルに登録されたオブジェクト間のインスタンス変数の自動接続が終了すると送信される。
 /*
  nibファイルとは
