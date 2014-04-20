@@ -43,6 +43,7 @@
     
     //    NSLog(@"test");
     NSLog(@"test2!!");
+    NSLog(@"testYura!!!!!");
 }
 
 - (void)didReceiveMemoryWarning
