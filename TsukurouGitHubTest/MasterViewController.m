@@ -15,29 +15,37 @@
 }
 @end
 
-@implementation MasterViewController
 
+@implementation MasterViewController
+//nibファイルがアプリケーションに読み込まれ、nibファイルに登録されたオブジェクト間のインスタンス変数の自動接続が終了すると送信される。
 - (void)awakeFromNib
 {
     [super awakeFromNib];
 }
 
+//Viewが呼び出されたときに、1回だけ呼び出されるメソッド
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    //
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
+    //"*"は、ポインタ渡しの変数定義
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
 }
 
+//メモリ不足時のメソッド
+//特に必要ないかも？ By 由良
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+
+//新しいオブジェクトが追加されたときのメソッド
 - (void)insertNewObject:(id)sender
 {
     if (!_objects) {
@@ -50,16 +58,21 @@
 
 #pragma mark - Table View
 
+//テーブル全体のセクション数を返すメソッド
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
+//オブジェクトの数を返すメソッド
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _objects.count;
 }
 
+
+//UITableViewのセル再利用のためのメソッド??
+//詳細は謎
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
@@ -69,12 +82,15 @@
     return cell;
 }
 
+//特定のアイテムを変更可能にするメソッド
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
+    //特定のアイテムを変更可能にしたくない場合は、NO を返す
     return YES;
 }
 
+//
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -100,6 +116,8 @@
     return YES;
 }
 */
+
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
