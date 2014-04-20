@@ -37,8 +37,42 @@
     //
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
+    // addボタンを作る
     //"*"は、ポインタ渡しの変数定義
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    // 押したら insertNewObject: を呼ぶ
+
+    // 以下のボタンが使える
+    //    UIBarButtonSystemItemDone,
+    //    UIBarButtonSystemItemCancel,
+    //    UIBarButtonSystemItemEdit,
+    //    UIBarButtonSystemItemSave,
+    //    UIBarButtonSystemItemAdd,
+    //    UIBarButtonSystemItemFlexibleSpace,
+    //    UIBarButtonSystemItemFixedSpace,
+    //    UIBarButtonSystemItemCompose,
+    //    UIBarButtonSystemItemReply,
+    //    UIBarButtonSystemItemAction,
+    //    UIBarButtonSystemItemOrganize,
+    //    UIBarButtonSystemItemBookmarks,
+    //    UIBarButtonSystemItemSearch,
+    //    UIBarButtonSystemItemRefresh,
+    //    UIBarButtonSystemItemStop,
+    //    UIBarButtonSystemItemCamera,
+    //    UIBarButtonSystemItemTrash,
+    //    UIBarButtonSystemItemPlay,
+    //    UIBarButtonSystemItemPause,
+    //    UIBarButtonSystemItemRewind,
+    //    UIBarButtonSystemItemDone,
+    //#if __IPHONE_3_0 <= __IPHONE_OS_VERSION_MAX_ALLOWED
+    //    UIBarButtonSystemItemUndo,
+    //    UIBarButtonSystemItemRedo,
+    //#endif
+    //#if __IPHONE_4_0 <= __IPHONE_OS_VERSION_MAX_ALLOWED
+    //    UIBarButtonSystemItemPageCurl,
+    //#endif
+
+    // addボタンをナビゲーションバーの右に置く
     self.navigationItem.rightBarButtonItem = addButton;
 }
 
@@ -81,6 +115,8 @@
 //詳細は謎
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //セルを描画した時に呼ばれる（新規に追加した時と、スクロールして表示した時）
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
     NSDate *object = _objects[indexPath.row];
